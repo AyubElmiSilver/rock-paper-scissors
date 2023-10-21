@@ -1,31 +1,75 @@
-//Declare a function
-//Use Math.random and Math.floor to generate a random item from the array list which will be the computer choice
+const button = document.querySelectorAll('#one');
+let playerSelection;
+button[0].addEventListener('click', () => {
+    playerSelection = 'rock';
+    const div = document.querySelector('.box-one');
+    div.style.cssText = 'background-color: blue;';
+    conditional:
+    if (player_score < 5 && computer_score < 5) {
+        console.log(computerAgainstPlayer(getComputerChoice()));
+    div.textContent = `The Current Score Is Player: ${player_score} - Computer: ${computer_score}`;
+    } else if (player_score === 5) {
+        div.textContent = `The Winner Is Player, Player: ${player_score} - Computer: ${computer_score}`; 
+        break conditional;
+    } else if (computer_score === 5) {
+        div.textContent = `The Winner Is Computer, Computer: ${computer_score} - Player: ${player_score}`;
+        break conditional;
+    }
+ }
+);
+button[1].addEventListener('click', () => {
+    playerSelection = 'paper';
+    const div = document.querySelector('.box-one');
+    div.style.cssText = 'background-color: blue;';
+    conditional:
+    if (player_score < 5 && computer_score < 5) {
+        console.log(computerAgainstPlayer(getComputerChoice()));
+    div.textContent = `The Current Score Is Player: ${player_score} - Computer: ${computer_score}`;
+    } else if (player_score === 5) {
+        div.textContent = `The Winner Is Player, Player: ${player_score} - Computer: ${computer_score}`; 
+        break conditional;
+    } else if (computer_score === 5) {
+        div.textContent = `The Winner Is Computer, Computer: ${computer_score} - Player: ${player_score}`;
+        break conditional;
+    }
+})
+button[2].addEventListener('click', () => {
+    playerSelection = 'scissors';
+    const div = document.querySelector('.box-one');
+    div.style.cssText = 'background-color: blue;';
+    conditional:
+    if (player_score < 5 && computer_score < 5) {
+        console.log(computerAgainstPlayer(getComputerChoice()));
+    div.textContent = `The Current Score Is Player: ${player_score} - Computer: ${computer_score}`;
+    } else if (player_score === 5) {
+        div.textContent = `The Winner Is Player, Player: ${player_score} - Computer: ${computer_score}`;  
+        break conditional;
+    } else if (computer_score === 5){
+        div.textContent = `The Winner Is Computer, Computer: ${computer_score} - Player: ${player_score}`;
+        break conditional;
+    }
 
-let getComputerChoice = function() {
+})
+
+function getComputerChoice () {
     const choose = ['Rock', 'Paper', 'Scissors'] 
     return choose[Math.floor(Math.random() * choose.length)]
 }
-// Declare variables that will store points and a function that will increment each time called
+
 let player_score = 0;
 let computer_score = 0;
-let player = function() {
+function player () {
     player_score = player_score + 1;
 }
-let computer = function() {
+function computer () {
     computer_score = computer_score + 1;
 }
-//Declare a function that takes two parameters
-//Create conditional statements depending on combinations given by player and computer and ensure that input is case insensitive
-//Output a string message that declares the winner based on the combination.
-//Run your code using the players selection and computer choice as arguments 
-function computerAgainstPlayer(playerSelection, computerSelection) {
-    if (playerSelection == null) {
-        return ('Try again. Enter Rock, Paper or Scissors');
-    //convert both comparisons to uppercase for comparison to work
-    }  else if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
+
+function computerAgainstPlayer(computerSelection) {
+     if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
         player();
         computer();
-        return (`Draw! You both selected ${playerSelection}`);
+        return (`Draw! You both selected ${playerSelection.toUpperCase()}`);
     } else if (playerSelection.toUpperCase() == 'ROCK' && computerSelection == 'Scissors') {
         player();
         return ('You Win! Rock beats Scissors'); 
@@ -44,21 +88,10 @@ function computerAgainstPlayer(playerSelection, computerSelection) {
     } else if (playerSelection.toUpperCase() == 'SCISSORS' && computerSelection == 'Rock') {
         computer();
         return ('You Lose! Rock beats Scissors '); 
-    } else {
-        return ('Try again. Enter Rock, Paper or Scissors');
     } 
 }
-//Play the game for 5 rounds
-console.log(computerAgainstPlayer(prompt('Enter Rock or Paper or Scissors'), getComputerChoice()));
-console.log(computerAgainstPlayer(prompt('Enter Rock or Paper or Scissors'), getComputerChoice()));
-console.log(computerAgainstPlayer(prompt('Enter Rock or Paper or Scissors'), getComputerChoice()));
-console.log(computerAgainstPlayer(prompt('Enter Rock or Paper or Scissors'), getComputerChoice()));
-console.log(computerAgainstPlayer(prompt('Enter Rock or Paper or Scissors'), getComputerChoice()));
 
-// Declare the winner
-(player_score > computer_score) ? console.log(`Player is the Winner, score ${player_score}-${computer_score}`):
-(player_score < computer_score) ? console.log(`Computer is the Winner, score ${computer_score}-${player_score}`):
-console.log(`Player and Computer have drawed, score ${player_score}-${computer_score}`)
+
 
 
 
